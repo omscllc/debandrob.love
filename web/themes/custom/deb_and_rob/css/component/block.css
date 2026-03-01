@@ -1,0 +1,19 @@
+#block-deb-and-rob-masthead {
+    justify-self: center;
+
+    & img {
+        filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.6));
+        width: clamp(300px, calc(142px + 49.375vw), 1090px);
+        height: auto;
+    }
+}
+
+#block-deb-and-rob-content {
+    & img {
+        &.qrcode {
+            width: clamp(300px, calc(246px + 16.875vw), 570px);
+            height: auto;
+            justify-self: center;
+        }
+    }
+}

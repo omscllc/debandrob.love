@@ -20,7 +20,8 @@ class PhotoUploadForm extends FormBase {
       '#type' => 'markup',
       '#markup' => '<div class="photo-upload-intro">'
         . '<h2>' . $this->t('Share your photos with us!') . '</h2>'
-        . '<p>' . $this->t('We would love to see your photos from the wedding. Upload them here and they will be added to our shared album.') . '</p>'
+        . '<p>' . $this->t('<a href="@gallery">I just want to see the pictures!</a>', ['@gallery' => '/gallery']) . '</p>'
+        . '<br><p>' . $this->t('We would love to see your photos from the wedding. Upload them here and they will be added to our shared album.') . '</p>'
         . '</div>',
       '#weight' => -10,
     ];

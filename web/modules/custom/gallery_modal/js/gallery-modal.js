@@ -8,6 +8,14 @@
 
   Drupal.behaviors.galleryModal = {
     attach: function (context) {
+      // Disable right-click and drag on gallery and modal images.
+      once('gallery-no-download', 'img', context).forEach(function (img) {
+        if (img.closest('.gallery-modal-trigger') || img.closest('.gallery-modal')) {
+          img.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+          img.addEventListener('dragstart', function (e) { e.preventDefault(); });
+        }
+      });
+
       // Create a hidden container for dialog trigger links (outside masonry).
       var linkContainer = document.getElementById('gallery-modal-links');
       if (!linkContainer) {

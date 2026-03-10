@@ -56,6 +56,8 @@ body {
   font-style: normal;
   font-size: clamp(1.5rem, calc(1.350rem + 0.450vw), 4rem);
   text-align: center;
+  margin: 1rem;
+  text-wrap: balance;
 }
 
 main {
@@ -121,4 +123,8 @@ h6 {
   .masonry-sizer {
     width: 300px;
   }
+}
+
+.views-element-container {
+  margin: 1rem auto;
 }

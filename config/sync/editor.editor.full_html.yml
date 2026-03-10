@@ -15,10 +15,15 @@ settings:
     items:
       - bold
       - italic
+      - underline
       - strikethrough
       - superscript
       - subscript
       - removeFormat
+      - alignment
+      - indent
+      - outdent
+      - specialCharacters
       - '|'
       - link
       - '|'
@@ -26,7 +31,7 @@ settings:
       - numberedList
       - '|'
       - blockQuote
-      - drupalInsertImage
+      - drupalMedia
       - insertTable
       - horizontalLine
       - '|'
@@ -35,6 +40,12 @@ settings:
       - '|'
       - sourceEditing
   plugins:
+    ckeditor5_alignment:
+      enabled_alignments:
+        - center
+        - justify
+        - left
+        - right
     ckeditor5_codeBlock:
       languages:
         -
@@ -81,13 +92,12 @@ settings:
           language: xml
     ckeditor5_heading:
       enabled_headings:
+        - heading1
         - heading2
         - heading3
         - heading4
         - heading5
         - heading6
-    ckeditor5_imageResize:
-      allow_resize: true
     ckeditor5_list:
       properties:
         reversed: true
@@ -96,6 +106,8 @@ settings:
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags: {  }
+    media_media:
+      allow_view_mode_override: false
 image_upload:
   status: true
   scheme: public

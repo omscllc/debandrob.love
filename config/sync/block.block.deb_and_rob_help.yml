@@ -1,0 +1,22 @@
+uuid: edd918dc-ae04-40b8-8675-326df6b7954e
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: deb_and_rob_help
+theme: deb_and_rob
+region: header
+weight: -1
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

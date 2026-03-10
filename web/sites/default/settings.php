@@ -41,6 +41,8 @@ $settings['config_sync_directory'] = '../config/sync';
 
 $settings['file_public_path'] = 'assets';
 
+$settings['file_private_path'] = 'sites/default/files/private';
+
 # If you're using a different local domain, you can add it to your settings.local.php file to redefine it.
 $settings['trusted_host_patterns'] = [
 

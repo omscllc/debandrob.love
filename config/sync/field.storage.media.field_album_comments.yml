@@ -1,0 +1,20 @@
+uuid: a1b2c3d4-e5f6-4a78-b9c0-d1e2f3456789
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - media
+id: media.field_album_comments
+field_name: field_album_comments
+entity_type: media
+type: comment
+settings:
+  comment_type: album_comment
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

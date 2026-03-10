@@ -1,0 +1,22 @@
+uuid: aae27426-ce63-4fd9-acfa-12d3eaf8f690
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: deb_and_rob_powered
+theme: deb_and_rob
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

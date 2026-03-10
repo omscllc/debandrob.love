@@ -1,0 +1,11 @@
+gallery-modal:
+  js:
+    js/gallery-modal.js: {}
+  css:
+    component:
+      css/gallery-modal.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - core/drupal.dialog.ajax

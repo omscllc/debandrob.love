@@ -1,0 +1,22 @@
+uuid: dd5aa52c-d1e6-4476-a73b-584767604a39
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: deb_and_rob_content
+theme: deb_and_rob
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

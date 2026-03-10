@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Template for gallery modal dialog content.
+ *
+ * Variables:
+ * - image_url: URL to the full-size image.
+ * - alt: Alt text for the image.
+ * - media_name: The media entity name.
+ * - comments: Rendered comments array.
+ * - comment_form: Rendered comment form.
+ * - can_share: Whether the user can share to social media.
+ * - share_url: URL to share.
+ * - share_image_url: Image URL for share services.
+ */
+#}
+<div class="gallery-modal">
+  <div class="gallery-modal__image">
+    <img src="{{ image_url }}" alt="{{ alt }}" loading="eager">
+  </div>
+
+  <div class="gallery-modal__sidebar">
+    <div class="gallery-modal__comments" id="gallery-modal-comments">
+      <h3 class="gallery-modal__comments-title">{{ 'Comments'|t }}</h3>
+      {% if comments %}
+        {{ comments }}
+      {% else %}
+        <p class="gallery-modal__no-comments">{{ 'No comments yet. Be the first to comment!'|t }}</p>
+      {% endif %}
+    </div>
+
+    {% if comment_form %}
+      <div class="gallery-modal__comment-form">
+        {{ comment_form }}
+      </div>
+    {% endif %}
+
+    {% if can_share %}
+      <div class="gallery-modal__share">
+        <h4 class="gallery-modal__share-title">{{ 'Share this photo'|t }}</h4>
+        <div class="gallery-modal__share-links">
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url|url_encode }}"
+             class="gallery-modal__share-link gallery-modal__share-link--facebook"
+             target="_blank"
+             rel="noopener noreferrer">
+            Facebook
+          </a>
+          <button type="button"
+             class="gallery-modal__share-link gallery-modal__share-link--copy"
+             data-share-url="{{ share_url }}">
+            {{ 'Copy link'|t }}
+          </button>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

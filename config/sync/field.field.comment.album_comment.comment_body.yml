@@ -1,0 +1,22 @@
+uuid: c3d4e5f6-a7b8-4c90-d1e2-f34567890123
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.album_comment
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.album_comment.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: album_comment
+label: Comment
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

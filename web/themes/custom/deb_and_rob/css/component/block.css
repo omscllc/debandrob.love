@@ -1,6 +1,4 @@
 #block-deb-and-rob-masthead {
-    justify-self: center;
-
     & img {
         filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.6));
         width: clamp(300px, calc(142px + 49.375vw), 1090px);
@@ -9,11 +7,33 @@
 }
 
 #block-deb-and-rob-content {
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    border: 1px solid lightgray;
+    margin: 0;
+    padding: 0;
+
     & img {
         &.qrcode {
             width: clamp(300px, calc(246px + 16.875vw), 570px);
             height: auto;
             justify-self: center;
+        }
+    }
+
+    & .masonry-layout .masonry-item img {
+        display: block;
+        height: auto;
+        width: 100px;
+
+        @media (min-width: 768px) {
+            width: 220px;
+        }
+
+        @media (min-width: 1200px) {
+            width: 300px;
         }
     }
 }

@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Install and update hooks for gallery_modal.
+ */
+
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ */
+function gallery_modal_install(): void {
+  // Set module weight higher than masonry_views (2) so our preprocess
+  // runs after masonry_views has set up row attributes.
+  module_set_weight('gallery_modal', 3);
+
+  // Grant comment permissions so the form appears for all visitors.
+  _gallery_modal_grant_comment_permissions();
+}
+
+/**
+ * Grant comment permissions to anonymous and authenticated roles.
+ */
+function gallery_modal_update_10001(): void {
+  _gallery_modal_grant_comment_permissions();
+}
+
+/**
+ * Grants 'access comments' and 'post comments' to anonymous/authenticated.
+ */
+function _gallery_modal_grant_comment_permissions(): void {
+  $permissions = ['access comments', 'post comments'];
+  foreach (['anonymous', 'authenticated'] as $rid) {
+    $role = Role::load($rid);
+    if ($role) {
+      foreach ($permissions as $permission) {
+        $role->grantPermission($permission);
+      }
+      $role->save();
+    }
+  }
+}

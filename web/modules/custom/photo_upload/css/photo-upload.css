@@ -1,0 +1,155 @@
+.photo-upload-form {
+    max-width: clamp(300px, calc(142px + 49.375vw), 1090px);
+    margin: 0;
+    padding: 1rem;
+}
+
+/* Intro text */
+.photo-upload-intro {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.photo-upload-intro h2 {
+    margin: 0 0 0.5rem;
+}
+
+.photo-upload-intro p {
+    margin: 0;
+    color: #555;
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Drop zone styling */
+.photo-upload-dropzone {
+    border: 2px dashed #bbb;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+    margin-bottom: 1rem;
+    background-color: cornsilk;
+}
+
+.photo-upload-dropzone:hover,
+.photo-upload-dropzone.is-dragover {
+    border-color: #666;
+    background-color: aliceblue;
+}
+
+.photo-upload-dropzone__icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.photo-upload-dropzone__text p {
+    margin: 0.25rem 0;
+    color: #555;
+}
+
+.photo-upload-dropzone__or {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.photo-upload-dropzone__browse,
+.photo-upload-submit {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: #0073e6;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.photo-upload-dropzone__browse:hover {
+    background: #005bb5;
+}
+
+/* Hide the native file input — the drop zone replaces it visually */
+.photo-upload-form .js-form-managed-file>input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.photo-upload-form .photo-upload-submit {
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+.form-photo-upload-form__photographer-name {
+    display: grid;
+    grid-template-columns: auto 40vw 1fr;
+    margin: 1rem 0;
+    gap: 1rem;
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: auto 25vw 1fr;
+    }
+}
+
+.photo-upload-container {
+    border: 2px dashed #bbb;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-radius: 0.7rem;
+    margin: 1rem 0 0;
+}
+
+.photo-upload-container .photo-upload-intro {
+    margin-bottom: 1rem;
+}
+
+.form-photo-upload-form__photographer-name .form-item-label {
+    align-content: center;
+}
+
+.photo-upload-required {
+    color: #e00;
+    font-size: 1.1rem;
+    margin-left: 0.25rem;
+}
+
+.photo-upload-queue-heading {
+    margin: 1rem 0 .5rem;
+    text-decoration: underline;
+}
+
+button[id^="edit-photos-remove-button"] {
+    margin: 1rem 0;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: #0073e6;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.photo-upload-queue-header {
+    border: 2px dashed #bbb;
+    border-radius: 12px;
+    padding: 0 2rem;
+    text-align: left;
+    transition: border-color 0.2s, background-color 0.2s;
+    margin-bottom: 1rem;
+    background-color: aliceblue;
+}
+
+.photo-upload-queue-header h6 {
+    text-align: center
+}

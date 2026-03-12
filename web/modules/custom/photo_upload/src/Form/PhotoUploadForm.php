@@ -20,8 +20,8 @@ class PhotoUploadForm extends FormBase {
       '#type' => 'markup',
       '#markup' => '<div class="photo-upload-intro">'
         . '<h2>' . $this->t('Share your photos with us!') . '</h2>'
-        . '<p>' . $this->t('<a href="@gallery">I just want to see the pictures!</a>', ['@gallery' => '/gallery']) . '</p>'
-        . '<br><p>' . $this->t('We would love to see your photos from the wedding. Upload them here and they will be added to our shared album.') . '</p>'
+        . '<p>' . $this->t('<a href="@gallery">I\'m just here for the pictures!</a>', ['@gallery' => '/gallery']) . '</p>'
+        . '<br><p>' . $this->t('We would love to see your photos from our wedding. Upload them here and they will be added to the shared album.') . '</p>'
         . '</div>',
       '#weight' => -10,
     ];
@@ -48,14 +48,19 @@ class PhotoUploadForm extends FormBase {
       '#maxlength' => 25,
       '#required' => TRUE,
       '#placeholder' => $this->t('Tell us who you are'),
+      '#attributes' => [
+        'required' => 'required',
+        'title' => 'Please tell us who you are',
+
+      ]
     ];
 
-    $form['upload_container']['footer'] = [
-      '#type' => 'markup',
-      '#markup' => '<div class="photo-upload-intro">'
-        . '<p>' . $this->t('Your name is required to upload photos.') . '</p>'
-        . '</div>',
-    ];
+    // $form['upload_container']['footer'] = [
+    //   '#type' => 'markup',
+    //   '#markup' => '<div class="photo-upload-intro">'
+    //     . '<p>' . $this->t('Your name is required to upload photos.') . '</p>'
+    //     . '</div>',
+    // ];
 
     $form['actions'] = [
       '#type' => 'actions',

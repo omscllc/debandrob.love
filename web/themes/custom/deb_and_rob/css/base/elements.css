@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --shadow-color: var(--color-black);
   --body-color: var(--color-black);
-  --link-color: var(--color-blue);
-  --color-blue: oklch(0.391 0.1616 275.91);
-  --color-dark-blue: oklch(0.30 0.18 275);
-  --color-white: oklch(1 0 0);
-  --color-red: oklch(0.5217 0.2128 27.35);
-  --color-bright-red: oklch(0.628 0.2577 29.23);
-  --color-maroon: oklch(0.4346 0.1737 13.84);
   --color-black: oklch(0 0 0);
+  --color-blue-bell: oklch(76% 0.096 265);
+  --color-blue: oklch(0.391 0.1616 275.91);
+  --color-bright-red: oklch(0.628 0.2577 29.23);
+  --color-dark-blue: oklch(0.30 0.18 275);
+  --color-dark-gray: oklch(0.6941 0 0);
+  --color-dim-gray: oklch(0.4667 0 0);
   --color-gray: oklch(0.683 0 0);
   --color-light-gray: oklch(0.8669 0 0);
+  --color-maroon: oklch(0.4346 0.1737 13.84);
   --color-medium-gray: oklch(0.7843 0 0);
-  --color-dark-gray: oklch(0.6941 0 0);
+  --color-red: oklch(0.5217 0.2128 27.35);
   --color-slate-gray: oklch(0.5529 0.0196 257.43);
-  --color-dim-gray: oklch(0.4667 0 0);
-  --color-blue-bell: oklch(76% 0.096 265);
   --color-sm-blue: oklch(0.6246 0.1616 275.91);
+  --color-white: oklch(1 0 0);
+  --link-color: var(--color-blue);
+  --shadow-color: var(--color-black);
   --title-font: "Great Vibes", cursive;
+
   height: 100dvh;
   height: 100vh;
   margin: 0;
@@ -27,48 +28,18 @@
 }
 
 body {
-  font-family: 'Noto Sans', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
   background-image: url('/assets/theme/images/debandrob-background-400px.png');
   background-repeat: repeat;
+  font-family: 'Noto Sans', sans-serif;
+  font-optical-sizing: auto;
   font-size: clamp(0.75rem, calc(0.700rem + 0.250vw), 1.00rem);
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-weight: 400;
 
   @media (min-width: 768px) {
     background-image: url('/assets/theme/images/debandrob-background.png');
   }
-}
-
-#block-deb-and-rob-content .view-gallery-page__header {
-  text-align: center;
-  margin: 2rem 0 1rem;
-  font-family: var(--title-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.5rem, calc(1.350rem + 0.450vw), 4rem);;
-}
-
-.coming-soon {
-  font-family: var(--title-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.5rem, calc(1.350rem + 0.450vw), 4rem);
-  text-align: center;
-  margin: 1rem;
-  text-wrap: balance;
-}
-
-main {
-  width: 85%;
-  justify-self: center;
-  margin: 1rem 0;
-}
-
-main:has(.node-page-full),
-main:has(.photo-upload-form) {
-  width: clamp(300px, calc(142px + 49.375vw), 1090px);
 }
 
 h1 {
@@ -93,38 +64,4 @@ h5 {
 
 h6 {
   font-size: clamp(0.83rem, calc(0.770rem + 0.275vw), 1.10rem);
-}
-
-.layout-container {
-  display: grid;
-  grid-template-rows: auto auto;
-}
-
-.view-gallery-page {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.view-gallery-page .masonry {
-  margin: 0 auto;
-}
-
-.masonry-sizer {
-  width: 100px;
-}
-
-@media (min-width: 768px) {
-  .masonry-sizer {
-    width: 220px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .masonry-sizer {
-    width: 300px;
-  }
-}
-
-.views-element-container {
-  margin: 1rem auto;
 }

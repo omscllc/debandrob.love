@@ -1,15 +1,28 @@
+.form-item__label--required::before {
+    content: '\2731';
+        color: red;
+        margin-right: 0.25rem;
+        font-weight: 900;
+        font-size: 1rem;
+}
+
+input:required,
+textarea:required {
+    border: 1px solid red;
+}
+
 .media-image__field-media-image {
     display: grid;
+}
 
-    & img {
-        height: auto;
-        width: 85%;
-        border-radius: 1rem;
-        filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.6));
-        margin: 1.5rem auto;
+.media-image__field-media-image img {
+    border-radius: 1rem;
+    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.6));
+    height: auto;
+    margin: 1.5rem auto;
+    width: 85%;
 
-        @media (min-width: 768px) {
-            margin: 1.8rem auto;
-        }
+    @media (min-width: 768px) {
+        margin: 1.8rem auto;
     }
 }

@@ -1,0 +1,21 @@
+.views-element-container {
+    margin: 1rem auto;
+}
+
+.view-gallery-page {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.view-gallery-page .masonry {
+    margin: 0 auto;
+}
+
+.view-gallery-page__content--empty a {
+    display: block;
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem);
+}
+
+.view-gallery-page__content--empty h3 {
+    font-style: italic;
+}

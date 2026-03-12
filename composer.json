@@ -38,6 +38,7 @@
         "drupal/filepond": "^1.0@alpha",
         "drupal/gin": "^5.0",
         "drupal/gin_toolbar": "^3.0",
+        "drupal/imagemagick": "^5.0",
         "drupal/masonry": "^4.1",
         "drupal/masonry_views": "^4.1",
         "drupal/pathauto": "^1.14",

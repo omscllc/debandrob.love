@@ -112,7 +112,20 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: "<h3 class=\"no-results text-align-center\">You didn't even go to the reception?  Nobody has had a chance to upload their pictures yet!</h3>\r\n<a href=\"/upload\" class=\"text-align-center\" title=\"Upload Photos\">&#128247;</a>"
+            format: full_html
+          tokenize: false
       sorts:
         created:
           id: created
@@ -184,7 +197,20 @@ display:
       use_more: false
       use_more_always: true
       use_more_text: more
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<h1>April Third, Two Thousand Twenty Six</h1>\r\n<a href=\"/upload\" class=\"upload-link\" title=\"Upload Photos\">&#128247;</a>"
+            format: full_html
+          tokenize: false
       footer: {  }
       display_extenders: {  }
     cache_metadata:

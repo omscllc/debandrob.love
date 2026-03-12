@@ -19,11 +19,13 @@ module:
   field: 0
   field_ui: 0
   file: 0
+  file_mdm: 0
   filepond: 0
   filter: 0
   help: 0
   history: 0
   image: 0
+  imagemagick: 0
   link: 0
   masonry: 0
   media: 0
@@ -40,6 +42,7 @@ module:
   recreate_block_content: 0
   search: 0
   shortcut: 0
+  sophron: 0
   system: 0
   taxonomy: 0
   text: 0

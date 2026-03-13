@@ -53,6 +53,7 @@
   margin: 1rem;
   min-height: 300px;
   overflow: hidden;
+  position: relative;
 }
 
 .gallery-modal__image img {
@@ -60,6 +61,63 @@
   max-height: 80vh;
   max-width: 100%;
   object-fit: contain;
+}
+
+/* Navigation buttons */
+.gallery-modal__nav {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  height: 50px;
+  justify-content: center;
+  opacity: 0.7;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.2s, background 0.2s;
+  width: 50px;
+  z-index: 10;
+}
+
+.gallery-modal__nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+.gallery-modal__nav:focus {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.gallery-modal__nav--prev {
+  left: 1rem;
+}
+
+.gallery-modal__nav--next {
+  right: 1rem;
+}
+
+.gallery-modal__nav-icon {
+  display: block;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Touch devices: make nav buttons larger */
+@media (pointer: coarse) {
+  .gallery-modal__nav {
+    font-size: 2.5rem;
+    height: 60px;
+    width: 60px;
+  }
 }
 
 /* Sidebar */

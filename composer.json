@@ -43,6 +43,7 @@
         "drupal/masonry_views": "^4.1",
         "drupal/pathauto": "^1.14",
         "drupal/recreate_block_content": "^3.0",
+        "drupal/redirect": "^1.12",
         "drupal/svg_image": "^3.2",
         "drupal/svg_image_field": "^2.3",
         "drupal/views_infinite_scroll": "^2.0",

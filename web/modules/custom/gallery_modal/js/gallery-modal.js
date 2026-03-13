@@ -101,4 +101,84 @@
     }
   };
 
+  /**
+   * Handle navigation between photos in the modal.
+   */
+  Drupal.behaviors.galleryModalNav = {
+    attach: function (context) {
+      once('gallery-modal-nav', '.gallery-modal__nav', context).forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          var mediaId = btn.getAttribute('data-media-id');
+          if (!mediaId) {
+            return;
+          }
+
+          // Find or create the hidden AJAX link for this media.
+          var linkContainer = document.getElementById('gallery-modal-links');
+          if (!linkContainer) {
+            console.error('Gallery modal links container not found');
+            return;
+          }
+
+          var linkId = 'gallery-modal-link-' + mediaId;
+          var hiddenLink = document.getElementById(linkId);
+          
+          if (!hiddenLink) {
+            // Create the link if it doesn't exist yet.
+            hiddenLink = document.createElement('a');
+            hiddenLink.id = linkId;
+            hiddenLink.href = Drupal.url('gallery/' + mediaId + '/modal');
+            hiddenLink.className = 'use-ajax';
+            hiddenLink.setAttribute('data-dialog-type', 'modal');
+            hiddenLink.setAttribute('data-dialog-options', JSON.stringify({
+              width: '90%',
+              maxWidth: 1200,
+              dialogClass: 'gallery-modal-dialog'
+            }));
+            linkContainer.appendChild(hiddenLink);
+            
+            // Initialize AJAX for the new link.
+            Drupal.ajax.bindAjaxLinks(linkContainer);
+          }
+
+          // Trigger the click on the hidden AJAX link.
+          $(hiddenLink).trigger('click');
+        });
+      });
+
+      // Add keyboard navigation (arrow keys).
+      once('gallery-modal-keyboard', '.gallery-modal', context).forEach(function (modal) {
+        // Listen for keydown on the document when modal is open.
+        var keyHandler = function (e) {
+          // Left arrow = previous.
+          if (e.key === 'ArrowLeft' || e.keyCode === 37) {
+            var prevBtn = modal.querySelector('.gallery-modal__nav--prev');
+            if (prevBtn) {
+              e.preventDefault();
+              prevBtn.click();
+            }
+          }
+          // Right arrow = next.
+          else if (e.key === 'ArrowRight' || e.keyCode === 39) {
+            var nextBtn = modal.querySelector('.gallery-modal__nav--next');
+            if (nextBtn) {
+              e.preventDefault();
+              nextBtn.click();
+            }
+          }
+        };
+
+        document.addEventListener('keydown', keyHandler);
+
+        // Clean up when the dialog closes.
+        $(document).one('dialogclose', function () {
+          document.removeEventListener('keydown', keyHandler);
+        });
+      });
+    }
+  };
+
 })(jQuery, Drupal, once);

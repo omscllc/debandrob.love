@@ -12,11 +12,26 @@
  * - can_share: Whether the user can share to social media.
  * - share_url: URL to share.
  * - share_image_url: Image URL for share services.
+ * - prev_id: Previous media ID (newer).
+ * - next_id: Next media ID (older).
+ * - current_id: Current media ID.
  */
 #}
-<div class="gallery-modal">
+<div class="gallery-modal" data-current-media-id="{{ current_id }}">
   <div class="gallery-modal__image">
+    {% if prev_id %}
+      <button type="button" class="gallery-modal__nav gallery-modal__nav--prev" data-media-id="{{ prev_id }}" aria-label="{{ 'Previous photo'|t }}">
+        <span class="gallery-modal__nav-icon">‹</span>
+      </button>
+    {% endif %}
+    
     <img src="{{ image_url }}" alt="{{ alt }}" loading="eager">
+    
+    {% if next_id %}
+      <button type="button" class="gallery-modal__nav gallery-modal__nav--next" data-media-id="{{ next_id }}" aria-label="{{ 'Next photo'|t }}">
+        <span class="gallery-modal__nav-icon">›</span>
+      </button>
+    {% endif %}
   </div>
 
   <div class="gallery-modal__sidebar">

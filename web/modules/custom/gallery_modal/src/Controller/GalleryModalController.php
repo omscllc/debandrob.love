@@ -64,6 +64,33 @@ class GalleryModalController extends ControllerBase {
       ? $image_style->buildUrl($image_uri)
       : $this->fileUrlGenerator->generateAbsoluteString($image_uri);
 
+    // Get all media IDs in the gallery (sorted newest to oldest).
+    $media_storage = $this->entityTypeManager->getStorage('media');
+    $query = $media_storage->getQuery()
+      ->condition('bundle', 'album')
+      ->condition('status', 1)
+      ->sort('created', 'DESC')
+      ->accessCheck(TRUE);
+    $all_media_ids = $query->execute();
+
+    // Find previous and next media IDs.
+    $prev_id = NULL;
+    $next_id = NULL;
+    $current_id = $media->id();
+    $ids_array = array_values($all_media_ids);
+    $current_index = array_search($current_id, $ids_array);
+
+    if ($current_index !== FALSE) {
+      // Previous is the item before current (newer).
+      if ($current_index > 0) {
+        $prev_id = $ids_array[$current_index - 1];
+      }
+      // Next is the item after current (older).
+      if ($current_index < count($ids_array) - 1) {
+        $next_id = $ids_array[$current_index + 1];
+      }
+    }
+
     // Load published comments for this media entity.
     $comment_storage = $this->entityTypeManager->getStorage('comment');
     $cids = $comment_storage->getQuery()
@@ -105,6 +132,9 @@ class GalleryModalController extends ControllerBase {
       '#can_share' => $can_share,
       '#share_url' => $share_url,
       '#share_image_url' => $image_url,
+      '#prev_id' => $prev_id,
+      '#next_id' => $next_id,
+      '#current_id' => $current_id,
     ];
   }
 

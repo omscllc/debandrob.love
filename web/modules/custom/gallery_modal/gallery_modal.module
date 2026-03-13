@@ -22,6 +22,9 @@ function gallery_modal_theme($existing, $type, $theme, $path) {
         'can_share' => FALSE,
         'share_url' => '',
         'share_image_url' => '',
+        'prev_id' => NULL,
+        'next_id' => NULL,
+        'current_id' => NULL,
       ],
     ],
   ];

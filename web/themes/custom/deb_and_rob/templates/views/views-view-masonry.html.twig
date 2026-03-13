@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for masonry view display.
+ *
+ * Adds a .masonry-sizer element for responsive column widths.
+ */
+#}
+
+{% if title and grouping %}
+  <h3>{{ title }}</h3>
+  <div class="{{grouping_class}}">
+{% endif %}
+
+{% if masonry_sizer is defined and masonry_sizer %}
+  <div class="masonry-sizer"></div>
+{% endif %}
+
+{% for row in rows %}
+  {%
+  set row_classes = [
+  default_row_class ? 'views-row',
+  ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{ row.content }}
+  </div>
+{% endfor %}
+
+{% if grouping %}
+  </div>
+{% endif %}

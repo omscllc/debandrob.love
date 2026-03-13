@@ -1,0 +1,8 @@
+uuid: f7a8b9c0-d1e2-4f35-a6b7-c8d9e0f12345
+langcode: en
+status: true
+dependencies: {  }
+id: album_comment
+label: 'Album comments'
+target_entity_type_id: media
+description: 'Comments on album media items'

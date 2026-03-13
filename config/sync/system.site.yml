@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: en
+uuid: a2ee2176-327b-4718-8698-7088f223e52f
+name: "Deborah & Rob's Wedding Album"
+mail: david.l.weiner30030@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /upload
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null

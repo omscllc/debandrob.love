@@ -1,0 +1,5 @@
+.node-page-full {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    background-color: rgba(250, 248, 238, 0.35);
+}

@@ -1,0 +1,9 @@
+name: Gallery Modal
+type: module
+description: 'Provides a modal dialog for viewing gallery photos with comments and social sharing.'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:media
+  - drupal:comment
+  - drupal:image

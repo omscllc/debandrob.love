@@ -1,0 +1,7 @@
+photo_upload.form:
+  path: '/upload'
+  defaults:
+    _form: '\Drupal\photo_upload\Form\PhotoUploadForm'
+    _title: 'Upload Photos'
+  requirements:
+    _permission: 'access content'

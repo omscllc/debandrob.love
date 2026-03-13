@@ -1,0 +1,23 @@
+uuid: 73e32db1-8620-48d2-a890-0b715ded6c23
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:95a68a5c-7eda-49a7-ac27-7580cf0ee813'
+  module:
+    - block_content
+  theme:
+    - deb_and_rob
+id: deb_and_rob_copyright
+theme: deb_and_rob
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:95a68a5c-7eda-49a7-ac27-7580cf0ee813'
+settings:
+  id: 'block_content:95a68a5c-7eda-49a7-ac27-7580cf0ee813'
+  label: Copyright
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

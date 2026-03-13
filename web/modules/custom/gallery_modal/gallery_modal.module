@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Gallery Modal module hooks.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_theme().
+ */
+function gallery_modal_theme($existing, $type, $theme, $path) {
+  return [
+    'gallery_modal' => [
+      'variables' => [
+        'image_url' => NULL,
+        'alt' => '',
+        'media_name' => '',
+        'comments' => [],
+        'comment_form' => [],
+        'can_share' => FALSE,
+        'share_url' => '',
+        'share_image_url' => '',
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_views_view_masonry().
+ *
+ * Add data-media-id attribute and gallery-modal library to gallery masonry items.
+ */
+function gallery_modal_preprocess_views_view_masonry(&$variables) {
+  $view = $variables['view'];
+  if ($view->storage->id() !== 'gallery') {
+    return;
+  }
+
+  foreach ($variables['rows'] as $id => &$row) {
+    $entity = $view->result[$id]->_entity ?? NULL;
+    if ($entity) {
+      $row['attributes']->setAttribute('data-media-id', Html::escape($entity->id()));
+      $row['attributes']->addClass('gallery-modal-trigger');
+    }
+  }
+
+  $variables['#attached']['library'][] = 'gallery_modal/gallery-modal';
+
+  // Inject a sizer element for responsive column widths.
+  $variables['masonry_sizer'] = TRUE;
+}

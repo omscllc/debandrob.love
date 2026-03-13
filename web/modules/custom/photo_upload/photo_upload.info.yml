@@ -1,0 +1,8 @@
+name: Photo Upload
+type: module
+description: 'Allows visitors to upload photos as media entities.'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:media
+  - drupal:file

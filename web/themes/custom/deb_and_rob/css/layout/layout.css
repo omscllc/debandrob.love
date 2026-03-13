@@ -1,0 +1,42 @@
+.coming-soon {
+  font-family: var(--title-font);
+  font-size: clamp(1.5rem, calc(1.350rem + 0.450vw), 4rem);
+  font-style: normal;
+  font-weight: 400;
+  margin: 1rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.layout-container {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+main {
+  justify-self: center;
+  margin: 1rem 0;
+  width: 85%;
+}
+
+main:has(.node-page-full),
+main:has(.photo-upload-form) {
+  width: clamp(300px, calc(142px + 49.375vw), 1090px);
+}
+
+.masonry-layout .masonry-item {
+    margin-bottom: 6px;
+}
+
+.masonry-sizer {
+  width: 100px;
+
+  @media (min-width: 768px) {
+    width: 220px;
+  }
+
+    @media (min-width: 1200px) {
+    width: 300px;
+  }
+}
+

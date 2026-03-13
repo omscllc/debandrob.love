@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: lGUHzRGduZeAsNq4io8s_97o3o3J5G-d9ivo7yXU2Dc
+use_cdn: true
+enable_media_library_widget: true
+flood:
+  enabled: true
+  limit: 500
+  window: 3600
+defaults:
+  max_files: 10
+  extensions: 'jpg jpeg gif png webp heic'
+  max_filesize: 32M
+  chunk_size: 5
+  upload_location: 'private://uploads'
+  upload_prompt: 'Drag & drop files or <span class="filepond--label-action">Browse</span>'
+  max_parallel_uploads: 3
+  item_panel_aspect_ratio: '1:1'
+  preview_fit_mode: contain
+  columns: 5
+  max_width: 200px

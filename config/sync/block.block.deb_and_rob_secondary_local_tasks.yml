@@ -1,0 +1,22 @@
+uuid: 4c84c02c-5f2a-4b54-a575-10e58704270a
+langcode: en
+status: false
+dependencies:
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: deb_and_rob_secondary_local_tasks
+theme: deb_and_rob
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

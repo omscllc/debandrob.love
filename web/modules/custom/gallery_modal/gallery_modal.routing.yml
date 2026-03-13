@@ -1,0 +1,11 @@
+gallery_modal.view:
+  path: '/gallery/{media}/modal'
+  defaults:
+    _controller: '\Drupal\gallery_modal\Controller\GalleryModalController::view'
+    _title: 'Photo'
+  requirements:
+    _permission: 'view media'
+  options:
+    parameters:
+      media:
+        type: entity:media

@@ -1,0 +1,25 @@
+uuid: 49fa1aa2-39b4-47f9-b021-1e819fc5c714
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: '-OAAZDw1OR_UyAEPEKX0Hu4LaZD149vW9PmMnIC-v0o'
+id: deb_and_rob_site_branding
+theme: deb_and_rob
+region: header
+weight: 1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

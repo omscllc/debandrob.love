@@ -1,0 +1,9 @@
+upload_form:
+  js:
+    js/photo-upload.js: {}
+  css:
+    component:
+      css/photo-upload.css: {}
+  dependencies:
+    - core/drupal
+    - core/once

@@ -12,16 +12,44 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "5.9.3",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dropzone/dropzone/releases/download/v5.9.3/dist.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
         "composer/installers": "^2.3",
         "cweagans/composer-patches": "^2.0",
+        "drupal/bem": "^3.11",
         "drupal/core-composer-scaffold": "^11.3",
         "drupal/core-project-message": "^11.3",
         "drupal/core-recipe-unpack": "^11.3",
         "drupal/core-recommended": "^11.3",
-        "drush/drush": "^13.7"
+        "drupal/dropzonejs": "^2.11",
+        "drupal/filepond": "^1.0@alpha",
+        "drupal/gin": "^5.0",
+        "drupal/gin_toolbar": "^3.0",
+        "drupal/imagemagick": "^5.0",
+        "drupal/masonry": "^4.1",
+        "drupal/masonry_views": "^4.1",
+        "drupal/pathauto": "^1.14",
+        "drupal/recreate_block_content": "^3.0",
+        "drupal/svg_image": "^3.2",
+        "drupal/svg_image_field": "^2.3",
+        "drupal/views_infinite_scroll": "^2.0",
+        "drupal/webform": "^6.3@beta",
+        "drush/drush": "^13.7",
+        "enyo/dropzone": "^5.9",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -38,7 +66,8 @@
             "drupal/core-recipe-unpack": true,
             "php-http/discovery": true,
             "php-tuf/composer-integration": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "sort-packages": true
     },
@@ -99,6 +128,11 @@
                 "      https://www.drupal.org/getting-involved",
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
+            ]
+        },
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/masonry/composer.libraries.json"
             ]
         }
     }

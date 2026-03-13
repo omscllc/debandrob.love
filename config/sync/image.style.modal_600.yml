@@ -1,0 +1,21 @@
+uuid: 4695787e-5195-4bf2-8a35-2e67c03727db
+langcode: en
+status: true
+dependencies: {  }
+name: modal_600
+label: 'Modal (600)'
+effects:
+  modal-600-scale:
+    uuid: null
+    id: image_scale
+    weight: 1
+    data:
+      width: 600
+      height: null
+      upscale: false
+  modal-600-avif:
+    uuid: null
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: avif

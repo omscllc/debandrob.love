@@ -1,0 +1,21 @@
+uuid: 5667ecba-7598-4478-a0a8-2540d69d283f
+langcode: en
+status: true
+dependencies: {  }
+name: full_hd_1920
+label: 'Full HD (1920)'
+effects:
+  905e5b17-944e-46f4-826c-2ff8ecc11484:
+    uuid: 905e5b17-944e-46f4-826c-2ff8ecc11484
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: true
+  16c1bb1e-d665-4e44-8c4f-d045b3242d8c:
+    uuid: 16c1bb1e-d665-4e44-8c4f-d045b3242d8c
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp

@@ -1,0 +1,32 @@
+uuid: 1e1d2dcf-7ccb-41cc-80ad-0dd447a439f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.album.field_album_comments
+    - field.field.media.album.field_media_image
+    - media.type.album
+  module:
+    - image
+id: media.album.default
+targetEntityType: media
+bundle: album
+mode: default
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_album_comments: true
+  name: true
+  thumbnail: true
+  uid: true

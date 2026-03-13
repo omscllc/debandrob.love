@@ -1,0 +1,23 @@
+uuid: fa0d7a4b-e13d-4c57-b5dd-3d29d4d455ed
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image:9e503400-61c2-40c9-9703-4667c9ab1bf3'
+  module:
+    - block_content
+  theme:
+    - deb_and_rob
+id: deb_and_rob_masthead
+theme: deb_and_rob
+region: header
+weight: -6
+provider: null
+plugin: 'block_content:9e503400-61c2-40c9-9703-4667c9ab1bf3'
+settings:
+  id: 'block_content:9e503400-61c2-40c9-9703-4667c9ab1bf3'
+  label: Masthead
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --body-color: var(--color-black);
+  --color-black: oklch(0 0 0);
+  --color-blue-bell: oklch(76% 0.096 265);
+  --color-blue: oklch(0.391 0.1616 275.91);
+  --color-bright-red: oklch(0.628 0.2577 29.23);
+  --color-dark-blue: oklch(0.30 0.18 275);
+  --color-dark-gray: oklch(0.6941 0 0);
+  --color-dim-gray: oklch(0.4667 0 0);
+  --color-gray: oklch(0.683 0 0);
+  --color-light-gray: oklch(0.8669 0 0);
+  --color-maroon: oklch(0.4346 0.1737 13.84);
+  --color-medium-gray: oklch(0.7843 0 0);
+  --color-red: oklch(0.5217 0.2128 27.35);
+  --color-slate-gray: oklch(0.5529 0.0196 257.43);
+  --color-sm-blue: oklch(0.6246 0.1616 275.91);
+  --color-white: oklch(1 0 0);
+  --link-color: var(--color-blue);
+  --shadow-color: var(--color-black);
+  --title-font: "Great Vibes", cursive;
+
+  height: 100dvh;
+  height: 100vh;
+  margin: 0;
+  min-height: 100dvh;
+}
+
+body {
+  background-image: url('/assets/theme/images/debandrob-background-400px.png');
+  background-repeat: repeat;
+  font-family: 'Noto Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(0.75rem, calc(0.700rem + 0.250vw), 1.00rem);
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-weight: 400;
+
+  @media (min-width: 768px) {
+    background-image: url('/assets/theme/images/debandrob-background.png');
+  }
+}
+
+h1 {
+  font-size: clamp(1.35rem, calc(1.260rem + 0.450vw), 1.80rem);
+}
+
+h2 {
+  font-size: clamp(1.13rem, calc(1.050rem + 0.375vw), 1.50rem);
+}
+
+h3 {
+  font-size: clamp(1.05rem, calc(0.980rem + 0.350vw), 1.40rem);
+}
+
+h4 {
+  font-size: clamp(0.98rem, calc(0.910rem + 0.325vw), 1.30rem);
+}
+
+h5 {
+  font-size: clamp(0.90rem, calc(0.840rem + 0.300vw), 1.20rem);
+}
+
+h6 {
+  font-size: clamp(0.83rem, calc(0.770rem + 0.275vw), 1.10rem);
+}

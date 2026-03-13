@@ -1,0 +1,122 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: ['feature/**']
+  workflow_dispatch:
+
+jobs:
+  deploy:
+#    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}
+            echo "Setting proper permissions"
+            chmod -R u+w web/sites/default
+            echo "Checking out ${{github.ref_name}}"
+            git checkout ${{github.ref_name}}
+            echo "Pulling latest code"
+            git pull
+
+      - name: Backup Database
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}
+            echo "Backing up database"
+            drush sql:dump > "/var/www/db_backups/${{ vars.DEV_BU_FILE_PREFIX }}.$(date +'%Y-%m-%d_%H:%M:%S').sql"
+
+      - name: Install Composer Dependencies
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}
+            echo "Installing composer dependencies"
+            composer install
+
+      - name: Install NPM Dependencies
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}/web/themes/custom/montreal2027
+            echo "Installing npm dependencies"
+            npm install
+
+      - name: Build Assets
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}/web/themes/custom/montreal2027
+            echo "Building assets"
+            npm run build:css
+
+      - name: Clean up node_modules
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}/web/themes/custom/montreal2027
+            echo "Cleaning up node_modules"
+            rm -rf node_modules
+            git restore package-lock.json
+
+      - name: Run Drush Commands
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            echo "Changing to deploy path"
+            cd ${{ vars.DEV_DEPLOY_PATH }}
+            echo "Clearing Drupal cache"
+            drush cr
+            echo "Importing config"
+            drush cim -y
+            echo "Clearing Drupal cache"
+            drush cr
+            echo "Updating database"
+            drush updb -y
+            echo "Final cache clear"
+            drush cr

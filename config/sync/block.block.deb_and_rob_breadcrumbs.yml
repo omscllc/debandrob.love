@@ -1,0 +1,22 @@
+uuid: 35f24324-b746-43ed-923f-95e40ea6b746
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: deb_and_rob_breadcrumbs
+theme: deb_and_rob
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

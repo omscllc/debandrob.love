@@ -1,0 +1,20 @@
+uuid: c1701b1f-fb32-4b03-8124-ea3da23ce7ba
+langcode: en
+status: true
+dependencies:
+  theme:
+    - deb_and_rob
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: deb_and_rob_primary_admin_actions
+theme: deb_and_rob
+region: header
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

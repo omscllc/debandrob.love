@@ -123,7 +123,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<h3 class=\"no-results text-align-center\">You didn't even go to the reception?  Nobody has had a chance to upload their pictures yet!</h3>\r\n<a href=\"/upload\" class=\"text-align-center\" title=\"Upload Photos\">&#128247;</a>"
+            value: '<h3 class="no-results text-align-center">You didn''t even go to the reception?  Nobody has had a chance to upload their pictures yet!</h3>'
             format: full_html
           tokenize: false
       sorts:

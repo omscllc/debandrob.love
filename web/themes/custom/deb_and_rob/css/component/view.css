@@ -11,11 +11,11 @@
     margin: 0 auto;
 }
 
-.view-gallery-page__content--empty a {
-    display: block;
+.no-results a {
+    display: none;
     font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem);
 }
 
-.view-gallery-page__content--empty h3 {
+.no-results {
     font-style: italic;
 }

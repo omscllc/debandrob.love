@@ -33,6 +33,7 @@
     font-size: clamp(1.5rem, calc(1.350rem + 0.450vw), 4rem);
     font-style: normal;
     font-weight: 400;
+    margin: 1rem 0 0;
     text-align: center;
 }
 

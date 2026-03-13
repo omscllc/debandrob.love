@@ -1,6 +1,4 @@
-.form-item__label {
-    align-content: center;
-}
+
 
 form .form-user-login-form__name,
 form .form-user-login-form__pass {
@@ -13,4 +11,8 @@ form .form-user-login-form__pass {
 form .form-user-login-form__name label,
 form .form-user-login-form__pass label {
     width: 5vw;
+}
+
+.form-item__label {
+    align-content: center;
 }

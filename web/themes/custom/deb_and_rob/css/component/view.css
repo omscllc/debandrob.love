@@ -1,3 +1,12 @@
+.no-results a {
+    display: none;
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem);
+}
+
+.no-results {
+    font-style: italic;
+}
+
 .views-element-container {
     margin: 1rem auto;
 }
@@ -9,13 +18,4 @@
 
 .view-gallery-page .masonry {
     margin: 0 auto;
-}
-
-.no-results a {
-    display: none;
-    font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem);
-}
-
-.no-results {
-    font-style: italic;
 }

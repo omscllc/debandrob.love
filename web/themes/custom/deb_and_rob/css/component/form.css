@@ -1,3 +1,16 @@
 .form-item__label {
     align-content: center;
 }
+
+form .form-user-login-form__name,
+form .form-user-login-form__pass {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0 0 1rem;
+}
+
+form .form-user-login-form__name label,
+form .form-user-login-form__pass label {
+    width: 5vw;
+}

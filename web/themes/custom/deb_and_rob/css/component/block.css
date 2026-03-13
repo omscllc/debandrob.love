@@ -61,3 +61,11 @@
     width: clamp(300px, calc(142px + 49.375vw), 1090px);
 }
 
+#user-login-form {
+    margin: 4rem;
+}
+
+#edit-name,
+#edit-pass {
+    width: 20vw;
+}

@@ -21,7 +21,7 @@ class PhotoUploadForm extends FormBase {
       '#markup' => '<div class="photo-upload-intro">'
         . '<h2>' . $this->t('Share your photos with us!') . '</h2>'
         . '<p>' . $this->t('<a href="@gallery">I\'m just here for the pictures!</a>', ['@gallery' => '/gallery']) . '</p>'
-        . '<br><p>' . $this->t('We would love to see your photos from our wedding. Upload them here and they will be added to the shared album.') . '</p>'
+        . '<br><p>' . $this->t('We would love to see your photos from our wedding. Upload them here and they will be added to the shared album. You may upload more than one file at a time, but please limit it to around 10 photos at a time.') . '</p>'
         . '</div>',
       '#weight' => -10,
     ];

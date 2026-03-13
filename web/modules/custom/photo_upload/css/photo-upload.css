@@ -9,6 +9,7 @@
     font-weight: 500;
     margin-bottom: 2rem;
     text-align: center;
+    text-wrap: balance;
 }
 
 .photo-upload-intro h2 {

@@ -6,6 +6,37 @@
 
   'use strict';
 
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      try {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.top = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        var copied = document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        if (copied) {
+          resolve();
+        }
+        else {
+          reject(new Error('Copy command failed'));
+        }
+      }
+      catch (err) {
+        reject(err);
+      }
+    });
+  }
+
   Drupal.behaviors.galleryModal = {
     attach: function (context) {
       // Disable right-click and drag on gallery and modal images.
@@ -87,14 +118,40 @@
       // Copy link button: copy share URL to clipboard.
       once('gallery-share-copy', '.gallery-modal__share-link--copy', context).forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var shareUrl = btn.getAttribute('data-share-url');
-          var original = btn.textContent;
+          var shareLinks = btn.closest('.gallery-modal__share-links');
+          var toastEl = shareLinks ? shareLinks.querySelector('.gallery-modal__share-toast') : null;
+          var shareUrl = btn.getAttribute('data-share-url') || '';
 
-          navigator.clipboard.writeText(shareUrl).then(function () {
-            btn.textContent = Drupal.t('Link copied!');
-            setTimeout(function () {
-              btn.textContent = original;
-            }, 2000);
+          if (shareUrl && shareUrl.indexOf('http') !== 0) {
+            shareUrl = new URL(shareUrl, window.location.origin).toString();
+          }
+
+          var showToast = function (message, isError) {
+            if (!toastEl) {
+              return;
+            }
+            toastEl.textContent = message;
+            toastEl.classList.toggle('is-error', !!isError);
+            toastEl.classList.add('is-visible');
+
+            if (toastEl._hideTimer) {
+              window.clearTimeout(toastEl._hideTimer);
+            }
+
+            toastEl._hideTimer = window.setTimeout(function () {
+              toastEl.classList.remove('is-visible', 'is-error');
+            }, 1800);
+          };
+
+          if (!shareUrl) {
+            showToast(Drupal.t('Unable to copy link.'), true);
+            return;
+          }
+
+          copyTextToClipboard(shareUrl).then(function () {
+            showToast(Drupal.t('Copied to clipboard!'));
+          }).catch(function () {
+            showToast(Drupal.t('Unable to copy link.'), true);
           });
         });
       });

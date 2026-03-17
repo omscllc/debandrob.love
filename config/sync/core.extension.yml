@@ -40,6 +40,7 @@ module:
   path_alias: 0
   photo_upload: 0
   recreate_block_content: 0
+  redirect: 0
   search: 0
   shortcut: 0
   sophron: 0

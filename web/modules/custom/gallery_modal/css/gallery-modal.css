@@ -3,6 +3,13 @@
  * Styles for the gallery modal dialog.
  */
 
+:root {
+  --comment-badge-offset: 0.4rem;
+  --comment-badge-size: 1.8rem;
+  --comment-icon-size: 1rem;
+  --comment-icon-top-padding: 0.05rem;
+}
+
 /* Transparent overlay link on masonry items */
 .gallery-modal__overlay-link {
   color: transparent;
@@ -231,33 +238,69 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  position: relative;
 }
 
 .gallery-modal__share-link {
   align-items: center;
-  border-radius: 4px;
-  color: #fff;
+  background: transparent;
+  border: none;
+  color: inherit;
   display: inline-flex;
   font-size: 0.8125rem;
-  gap: 0.25rem;
-  padding: 0.375rem 0.75rem;
+  justify-content: center;
+  padding: 0;
   text-decoration: none;
   transition: opacity 0.2s;
 }
 
 .gallery-modal__share-link:hover {
-  color: #fff;
+  color: inherit;
   opacity: 0.85;
 }
 
-.gallery-modal__share-link--facebook {
-  background-color: #1877f2;
+.gallery-modal__share-link--facebook,
+.gallery-modal__share-link--facebook:visited,
+.gallery-modal__share-link--facebook:hover,
+.gallery-modal__share-link--facebook:focus {
+  color: #1877f2;
+}
+
+.gallery-modal__share-link--facebook svg {
+  color: #1877f2;
+  fill: #1877f2;
 }
 
 .gallery-modal__share-link--copy {
-  background-color: #555;
-  border: none;
+  color: #555;
   cursor: pointer;
+}
+
+.gallery-modal__share-toast {
+  background: rgba(33, 33, 33, 0.92);
+  border-radius: 4px;
+  bottom: calc(100% + 6px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 0.75rem;
+  left: 0;
+  opacity: 0;
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: translateY(3px);
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.gallery-modal__share-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-modal__share-toast.is-error {
+  background: rgba(179, 38, 30, 0.95);
 }
 
 .gallery-modal__share-link--pinterest {
@@ -271,7 +314,39 @@
 /* Masonry item trigger styles */
 .gallery-modal-trigger {
   cursor: pointer;
+  position: relative;
   transition: opacity 0.2s, transform 0.2s;
+}
+
+.gallery-modal-trigger--has-comments::after {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 50%;
+  content: '';
+  height: var(--comment-badge-size);
+  pointer-events: none;
+  position: absolute;
+  right: var(--comment-badge-offset);
+  top: var(--comment-badge-offset);
+  width: var(--comment-badge-size);
+  z-index: 2;
+}
+
+.gallery-modal-trigger--has-comments::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 3.5A2.5 2.5 0 0 1 5.5 1h9A2.5 2.5 0 0 1 17 3.5v6A2.5 2.5 0 0 1 14.5 12H9l-3.8 3.1a.75.75 0 0 1-1.2-.59V12H5.5A2.5 2.5 0 0 1 3 9.5v-6z'/%3E%3C/svg%3E");
+  background-color: rgba(255, 255, 255, 0.9);
+  content: '';
+  height: var(--comment-icon-size);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 3.5A2.5 2.5 0 0 1 5.5 1h9A2.5 2.5 0 0 1 17 3.5v6A2.5 2.5 0 0 1 14.5 12H9l-3.8 3.1a.75.75 0 0 1-1.2-.59V12H5.5A2.5 2.5 0 0 1 3 9.5v-6z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  pointer-events: none;
+  position: absolute;
+  right: calc(var(--comment-badge-offset) + (var(--comment-badge-size) - var(--comment-icon-size)) / 2);
+  top: calc(var(--comment-badge-offset) + (var(--comment-badge-size) - var(--comment-icon-size)) / 2 + var(--comment-icon-top-padding));
+  width: var(--comment-icon-size);
+  z-index: 3;
 }
 
 .gallery-modal-trigger:hover {

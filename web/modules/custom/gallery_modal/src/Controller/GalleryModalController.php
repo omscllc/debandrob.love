@@ -120,7 +120,7 @@ class GalleryModalController extends ControllerBase {
 
     // Check social sharing permission.
     $can_share = $this->currentUser->hasPermission('share gallery photos');
-    $share_url = $media->toUrl('canonical', ['absolute' => TRUE])->toString();
+    $share_url = $this->fileUrlGenerator->generateAbsoluteString($image_uri);
 
     return [
       '#theme' => 'gallery_modal',

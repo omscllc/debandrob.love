@@ -41,11 +41,42 @@ function gallery_modal_preprocess_views_view_masonry(&$variables) {
     return;
   }
 
+  $media_ids = [];
+  foreach ($variables['rows'] as $id => $row) {
+    $entity = $view->result[$id]->_entity ?? NULL;
+    if ($entity) {
+      $media_ids[] = (int) $entity->id();
+    }
+  }
+
+  $commented_media = [];
+  if (!empty($media_ids)) {
+    $commented_ids = \Drupal::database()
+      ->select('comment_field_data', 'cfd')
+      ->fields('cfd', ['entity_id'])
+      ->condition('entity_type', 'media')
+      ->condition('field_name', 'field_album_comments')
+      ->condition('status', 1)
+      ->condition('entity_id', $media_ids, 'IN')
+      ->distinct()
+      ->execute()
+      ->fetchCol();
+
+    if (!empty($commented_ids)) {
+      $commented_media = array_flip(array_map('intval', $commented_ids));
+    }
+  }
+
   foreach ($variables['rows'] as $id => &$row) {
     $entity = $view->result[$id]->_entity ?? NULL;
     if ($entity) {
-      $row['attributes']->setAttribute('data-media-id', Html::escape($entity->id()));
+      $media_id = (int) $entity->id();
+      $row['attributes']->setAttribute('data-media-id', Html::escape((string) $media_id));
       $row['attributes']->addClass('gallery-modal-trigger');
+      if (isset($commented_media[$media_id])) {
+        $row['attributes']->addClass('gallery-modal-trigger--has-comments');
+        $row['attributes']->setAttribute('title', (string) \Drupal::translation()->translate('Has comments'));
+      }
     }
   }
 

@@ -1,0 +1,14 @@
+uuid: 2d0ea64b-09c1-48be-9829-8cfe0135b708
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.comments
+  module:
+    - user
+id: user_remove_role_action.comments
+label: 'Remove the Comments role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: comments

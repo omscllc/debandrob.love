@@ -1,0 +1,14 @@
+uuid: b9dfe0bf-0c5d-4b8c-bb03-e0743a4d3286
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.comments
+  module:
+    - user
+id: user_add_role_action.comments
+label: 'Add the Comments role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: comments

@@ -1,0 +1,31 @@
+uuid: dac59f78-8757-4db4-9c6b-8e29b6ca6584
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - comment
+    - contextual
+    - file
+    - filter
+    - node
+    - system
+    - toolbar
+id: comments
+label: Comments
+weight: 4
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access comments'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access toolbar'
+  - 'administer comments'
+  - 'edit own comments'
+  - 'skip comment approval'
+  - 'use text format restricted_html'
+  - 'view own unpublished content'
+  - 'view the administration theme'
